@@ -1,0 +1,135 @@
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: url("/assets/img/login-bg.png");;
+}
+
+.section-left{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.section-right{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.logo-buap{
+  width: 280px;
+  height: 350px;
+}
+
+.logo-fcc{
+  width: 500px;
+  height: 180px;
+}
+
+.title{
+  font-size: 32px;
+  text-align: center;
+  font-family: Nexa-Bold;
+  letter-spacing: 0px;
+  color: #231F20;
+  text-transform: uppercase;
+  opacity: 1;
+}
+
+.btn-iniciar-sesion{
+  cursor: pointer;
+  display: flex;
+
+  opacity: 1;
+  font-size: 18px;
+  color: rgb(7, 6, 6);
+  font-weight: bold;
+  background-color: rgba(15, 167, 255, 0.651);
+  padding: 10px 20px;
+  border-radius: 10px; 
+  margin-right: 30px;
+}
+
+.btn-registrar
+{
+  cursor: pointer;
+  flex-direction: row;
+  align-self: flex-end;
+  opacity: 1;
+  font-size: 18px;
+  color: rgb(7, 6, 6);
+  font-weight: bold;
+  background-color: rgba(255, 15, 15, 0.651);
+  padding: 10px 20px;
+  border-radius: 10px; 
+  margin-left: 30px;
+}
+
+.botones
+{
+display: flex;
+flex-direction: row;
+}
+
+.olvide-clave {
+  cursor: pointer;
+}
+
+.olvide 
+{
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    color: #000000;
+    margin-top: 10px;
+}
+
+.email-input
+{
+    width: 65%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2.5px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.password-input 
+{
+    width: 65%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2.5px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 1rem;
+}
+
+.contenedor-inputs{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 3rem;
+  width: 30rem;
+  height: 25rem;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(8, 8, 8, 0.1); 
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+}
