@@ -43,6 +43,25 @@ export class RegistroAdminComponent implements OnInit{
     if(!$.isEmptyObject(this.errors)){
       return false;
     }
+
+    // Validamos que las contraseñas coincidan
+    //Validar la contraseña
+    if(this.admin.password == this.admin.confirmar_password){
+      //Aquí si todo es correcto vamos a registrar - aquí se manda a consumir el servicio
+      this.administradoresService.registrarAdmin(this.admin).subscribe(
+        (response)=>{
+          alert("Usuario registrado correctamente");
+          console.log("Usuario registrado: ", response);
+          this.router.navigate(["/"]);
+        }, (error)=>{
+          alert("No se pudo registrar usuario");
+        }
+      );
+    }else{
+      alert("Las contraseñas no coinciden");
+      this.admin.password="";
+      this.admin.confirmar_password="";
+    }
   }
 
   public actualizar(){

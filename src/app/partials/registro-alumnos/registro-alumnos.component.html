@@ -16,34 +16,34 @@
         
         <mat-form-field class="mat-input" appearance="outline">
             <mat-label>Nombre</mat-label>
-            <input matInput [(ngModel)]="alumno.nombre" placeholder="Escribe nombre">
-            <div *ngIf="errors.nombre" class="invalid-feedback">{{ errors.nombre }}</div>
+            <input matInput [(ngModel)]="alumno.first_name" placeholder="Escribe nombre">
+            <div *ngIf="errors.first_name" class="invalid-feedback">{{ errors.first_name }}</div>
         </mat-form-field>
         
         <mat-form-field class="mat-input" appearance="outline">
             <mat-label>Apellidos</mat-label>
-            <input matInput [(ngModel)]="alumno.apellidos" placeholder="Escribe apellidos">
-            <div *ngIf="errors.apellidos" class="invalid-feedback">{{ errors.apellidos }}</div>
+            <input matInput [(ngModel)]="alumno.last_name" placeholder="Escribe apellidos">
+            <div *ngIf="errors.last_name" class="invalid-feedback">{{ errors.last_name }}</div>
         </mat-form-field>
         
         <mat-form-field class="mat-input" appearance="outline">
             <mat-label>Correo Electronico</mat-label>
-            <input matInput [(ngModel)]="alumno.correo" placeholder="Escribe tu Correo Electronico" [disabled]="editar">
-            <div *ngIf="errors.correo" class="invalid-feedback">{{ errors.correo }}</div>
+            <input matInput [(ngModel)]="alumno.email" placeholder="Escribe tu Correo Electronico" [disabled]="editar">
+            <div *ngIf="errors.email" class="invalid-feedback">{{ errors.email }}</div>
         </mat-form-field>
         
           <mat-form-field class="mat-input" appearance="outline" *ngIf="!editar">
             <mat-label>Contraseña</mat-label>
-            <input matInput [(ngModel)]="alumno.clave" type="{{ inputType_1 }}" placeholder="Escribe contraseña">
+            <input matInput [(ngModel)]="alumno.password" type="{{ inputType_1 }}" placeholder="Escribe contraseña">
             <mat-icon matSuffix class="eye-icon" (click)="showPassword()">{{hide_1 ? 'visibility_off' : 'visibility'}}</mat-icon>
-            <div *ngIf="errors.clave" class="invalid-feedback">{{ errors.clave }}</div>
+            <div *ngIf="errors.password" class="invalid-feedback">{{ errors.password }}</div>
         </mat-form-field>
         
           <mat-form-field class="mat-input" appearance="outline" *ngIf="!editar">
             <mat-label>Confirmar contraseña</mat-label>
-            <input matInput [(ngModel)]="alumno.confirmar_clave" type="{{ inputType_2 }}" placeholder="Confirma la contraseña">
+            <input matInput [(ngModel)]="alumno.confirmar_password" type="{{ inputType_2 }}" placeholder="Confirma la contraseña">
             <mat-icon matSuffix class="eye-icon" (click)="showPwdConfirmar()">{{hide_2 ? 'visibility_off' : 'visibility'}}</mat-icon>
-            <div *ngIf="errors.confirmar_clave" class="invalid-feedback">{{ errors.confirmar_clave }}</div>
+            <div *ngIf="errors.confirmar_password" class="invalid-feedback">{{ errors.confirmar_password }}</div>
         </mat-form-field>
         
         <mat-form-field class="mat-input" appearance="outline">

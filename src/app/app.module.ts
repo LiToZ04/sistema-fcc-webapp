@@ -33,6 +33,9 @@ import { RegistroMaestrosComponent } from './partials/registro-maestros/registro
 
 //ng mask
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { AdminScreenComponent } from './screens/admin-screen/admin-screen.component';
+import { MaestrosScreenComponent } from './screens/maestros-screen/maestros-screen.component';
+import { AlumnosScreenComponent } from './screens/alumnos-screen/alumnos-screen.component';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
@@ -44,7 +47,10 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     NavbarComponent,
     RegistroAdminComponent,
     RegistroAlumnosComponent,
-    RegistroMaestrosComponent
+    RegistroMaestrosComponent,
+    AdminScreenComponent,
+    MaestrosScreenComponent,
+    AlumnosScreenComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ export class RegistroScreenComponent implements OnInit{
 
   public tipo:string = "registro-usuarios";
   public user:any = {};
+  //Banderas para tipos de usuarios
   public isAdmin:boolean = false;
   public isAlumno:boolean = false;
   public isMaestro:boolean = false;

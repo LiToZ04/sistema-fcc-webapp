@@ -10,7 +10,7 @@
         <div class="contenedor-inputs">
             <h3 class="title">Inicio de Sesión</h3>
 
-            <input type="email" [(ngModel)]="username" class="email-input" id="email" placeholder="Ingrese Correo electrónico">
+            <input type="email" [(ngModel)]="username" class="email-input" id="email" placeholder="Ingrese Correo electrónico" required="">
             <div *ngIf="errors.username" class="invalid-feedback">{{ errors.username }}</div>
 
 

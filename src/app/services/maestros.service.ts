@@ -1,8 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ValidatorService } from './tools/validator.service';
 import { ErrorsService } from './tools/errors.service';
 import { Observable } from 'rxjs';
+import { environment } from 'src/assets/environments/environment';
+import { FacadeService } from './facade.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -13,25 +19,27 @@ export class MaestrosService {
     private http: HttpClient,
     private validatorService: ValidatorService,
     private errorService: ErrorsService,
+    private facadeService: FacadeService
   ) { }
 
   public esquemaMaestro(){
     return {
-      'id_trabajador':'',
-      'nombre': '',
-      'apellidos': '',
-      'correo': '',
-      'clave': '',
-      'confirmar_clave': '',
+      'rol':'',
+      'id_trabajador': '',
+      'first_name': '',
+      'last_name': '',
+      'email': '',
+      'password': '',
+      'confirmar_password': '',
       'fecha_nacimiento': '',
       'telefono': '',
       'rfc': '',
       'cubiculo': '',
-      'area_investigacion':'',
-      'lista' : '',
-    }
+      'area_investigacion': '',
+      'materias_json': []
+      }
   }
-
+//Validación para el formulario
   public validarMaestro(data: any, editar: boolean){
     console.log("Validando maestro... ", data);
     let error: any = [];
@@ -40,52 +48,36 @@ export class MaestrosService {
       error["id_trabajador"] = this.errorService.required;
     }
 
-    if(!this.validatorService.required(data["nombre"])){
-      error["nombre"] = this.errorService.required;
+    if(!this.validatorService.required(data["first_name"])){
+      error["first_name"] = this.errorService.required;
     }
 
-    if(!this.validatorService.required(data["apellidos"])){
-      error["apellidos"] = this.errorService.required;
+    if(!this.validatorService.required(data["last_name"])){
+      error["last_name"] = this.errorService.required;
     }
 
-    if(!this.validatorService.required(data["correo"])){
-      error["correo"] = this.errorService.required;
-    }else if(!this.validatorService.max(data["correo"], 40)){
-      error["correo"] = this.errorService.max(40);
-    }else if (!this.validatorService.email(data['correo'])) {
-      error['correo'] = this.errorService.email;
+    if(!this.validatorService.required(data["email"])){
+      error["email"] = this.errorService.required;
+    }else if(!this.validatorService.max(data["email"], 40)){
+      error["email"] = this.errorService.max(40);
+    }else if (!this.validatorService.email(data['email'])) {
+      error['email'] = this.errorService.email;
     }
 
     if(!editar){
-      if(!this.validatorService.required(data["clave"])){
-        error["clave"] = this.errorService.required;
+      if(!this.validatorService.required(data["password"])){
+        error["password"] = this.errorService.required;
       }
 
-      if(!this.validatorService.required(data["confirmar_clave"])){
-        error["confirmar_clave"] = this.errorService.required;
+      if(!this.validatorService.required(data["confirmar_password"])){
+        error["confirmar_password"] = this.errorService.required;
       }
     }
 
-    if (!this.validatorService.required(data["fecha_nacimiento"]))
-    {
-      error["fecha_nacimiento"] = this.errorService.required;  
+    if(!this.validatorService.required(data["fecha_nacimiento"])){
+      error["fecha_nacimiento"] = this.errorService.required;
     }
 
-    if (!this.validatorService.required(data["curp"]))
-    {
-      error["curp"] = this.errorService.required;  
-    }
-    else if(!this.validatorService.max(data["curp"],18))
-    {
-      error["curp"] = this.errorService.max(18);
-      alert("La CURP debe tener 18 caracteres");
-    }
-    else if(!this.validatorService.min(data["curp"],18))
-    {
-      error["curp"] = this.errorService.min(18);
-      alert("La CURP debe tener 18 caracteres");
-    }
-    
     if(!this.validatorService.required(data["rfc"])){
       error["rfc"] = this.errorService.required;
     }else if(!this.validatorService.min(data["rfc"], 12)){
@@ -96,12 +88,6 @@ export class MaestrosService {
       alert("La longitud de caracteres deL RFC es mayor, deben ser 13");
     }
 
-    if(!this.validatorService.required(data["edad"])){
-      error["edad"] = this.errorService.required;
-    }else if(!this.validatorService.numeric(data["edad"])){
-      alert("El formato es solo números");
-    }
-
     if(!this.validatorService.required(data["telefono"])){
       error["telefono"] = this.errorService.required;
     }
@@ -110,11 +96,25 @@ export class MaestrosService {
       error["cubiculo"] = this.errorService.required;
     }
 
-    if (!this.validatorService.required(data["area_investigacion"]))
-    {
-      error["area_investigacion"] = this.errorService.required;  
+    if(!this.validatorService.required(data["area_investigacion"])){
+      error["area_investigacion"] = this.errorService.required;
     }
+
+    if(!this.validatorService.required(data["materias_json"])){
+      error["materias_json"] = "Debe seleccionar al menos una materia";
+    }
+
+    //Return arreglo
     return error;
   }
 
+  public registrarMaestro (data: any): Observable <any>{
+    return this.http.post<any>(`${environment.url_api}/maestro/`,data, httpOptions);
+  }
+
+  public obtenerListaMaestros (): Observable <any>{
+    var token = this.facadeService.getSessionToken();
+    var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
+    return this.http.get<any>(`${environment.url_api}/lista-maestros/`, {headers:headers});
+  }
 }
