@@ -19,6 +19,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 //Screens
 import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
@@ -37,6 +38,10 @@ import { AdminScreenComponent } from './screens/admin-screen/admin-screen.compon
 import { MaestrosScreenComponent } from './screens/maestros-screen/maestros-screen.component';
 import { AlumnosScreenComponent } from './screens/alumnos-screen/alumnos-screen.component';
 import { EliminarUserModalComponent } from './modals/eliminar-user-modal/eliminar-user-modal.component';
+import { GraficasScreenComponent } from './screens/graficas-screen/graficas-screen.component';
+import { MateriasScreenComponent } from './screens/materias-screen/materias-screen.component';
+import { EliminarMateriaModalComponent } from './modals/eliminar-materia-modal/eliminar-materia-modal.component';
+import { RegistroMateriaComponent } from './partials/registro-materia/registro-materia.component';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
@@ -52,7 +57,11 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     AdminScreenComponent,
     MaestrosScreenComponent,
     AlumnosScreenComponent,
-    EliminarUserModalComponent
+    EliminarUserModalComponent,
+    GraficasScreenComponent,
+    MateriasScreenComponent,
+    EliminarMateriaModalComponent,
+    RegistroMateriaComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +83,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     MatSelectModule,
     NgxMaskModule.forRoot(options),
     MatListModule,
+    NgxMaterialTimepickerModule.setOpts('es-ES'),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,109 @@
+/* Estilos para el wrapper */
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+
+/* Estilos para la sección de registro */
+.section-registro {
+  width: 100%;
+}
+
+/* Estilos para el cuerpo del registro */
+.body-registro {
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1.5rem;
+}
+
+/* Estilos para los títulos de usuario y materias */
+.title-user, .title-materias {
+  font-family: Nexa-Bold;
+  color: #231F20;
+}
+
+.title-user {
+  font-size: 28px;
+  text-transform: capitalize;
+}
+
+.title-materias {
+  font-size: 18px;
+}
+
+/* Estilos para los botones */
+.section-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.btn {
+  width: 350px;
+  height: 50px;
+  border-radius: 8px;
+  font-family: Nexa-Bold;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.btn-danger {
+  background-color: #D9534F;
+}
+
+.btn-danger:hover {
+  background-color: #C9302C;
+}
+
+.btn-primary {
+  background-color: #0092B8;
+}
+
+.btn-primary:hover {
+  background-color: #017895;
+}
+
+/* Estilos para los campos de formulario */
+.mat-input {
+  width: 100%;
+}
+
+.invalid-feedback {
+  color: #dc3545;
+}
+
+/* Estilos para los checkbox */
+.checkbox-group {
+  width: 100%;
+  padding-left: 3px;
+  margin-top: 15px;
+}
+
+.checkbox-item {
+  margin-top: 5px;
+}
+
+.d-checkbox-nombre {
+  font-family: Nexa;
+  font-size: 16px;
+  color: #000000;
+}
+
+/* Estilos para los campos de hora */
+.mat-input > input {
+  width: calc(100% - 45px);
+}
+
+.mat-input > ngx-material-timepicker {
+  width: 45px;
+}
